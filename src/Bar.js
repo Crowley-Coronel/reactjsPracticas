@@ -18,7 +18,11 @@ const Bar = (props) => {
   return (
     <div>
       <Navbar color="light" light expand="md">
-        <NavbarBrand to="/home">React</NavbarBrand>
+        <NavbarBrand>
+        <Link to ="/home">
+          React
+        </Link>
+        </NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>

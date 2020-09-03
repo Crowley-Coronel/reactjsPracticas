@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { Table, Button } from 'reactstrap'
 import axios from 'axios'
-import Pagination from 'react-js-pagination';
+import PaginationComponent from "react-reactstrap-pagination";
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 class Listado extends React.Component {
   state = { results: [], activePage: 1, books: [] }
@@ -25,6 +26,7 @@ class Listado extends React.Component {
     return (
       <div>
         {this.state.results.length > 0 ? (
+          <div>
           <Table striped style={{ width: '700px', textAlign: 'center' }}>
             <thead>
               <tr>
@@ -54,17 +56,26 @@ class Listado extends React.Component {
               ))}
             </tbody>
           </Table>
+
+          <PaginationComponent
+            defaultActivePage={this.state.activePage}
+            maxPaginationNumber={10}
+            totalItems={this.state.results.length}
+            pageSize={10}
+            onSelect={this.handlePageChange.bind(this)}
+            firstPageText="<<"
+            previousPageText="<"
+            nextPageText=">"
+            lastPageText=">>"
+            size="sm"
+            ></PaginationComponent>
+        </div>
         ) : (
+          <div>
           <small> CARGANDO. . .</small>
+          </div>
         )}
 
-        <Pagination className="pagination"
-        activePage={this.state.activePage}
-        itemsCountPerPage={10}
-        totalItemsCount={100}
-        pageRangeDisplayed={5}
-        onChange={this.handlePageChange.bind(this)}
-      />
       </div>
     )
   }
