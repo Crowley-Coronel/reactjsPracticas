@@ -1,0 +1,30 @@
+label {
+  display: block;
+  margin: 5px 0;
+}
+
+.menu {
+  position: absolute;
+  box-sizing: border-box;
+  width: 100%;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+  background-color: white;
+  z-index: 100;
+}
+
+.item {
+  padding: 2px 6px;
+  cursor: default;
+}
+
+.item-highlighted {
+  color: white;
+  background-color: #4095bf;
+}
+
+.item-header {
+  background-color: #eeeeee;
+  color: #454545;
+  font-weight: bold;
+}
