@@ -34,17 +34,24 @@ export function sortStates(a, b, value) {
 }
 
 export function fakeRequest(value, cb) {
-  return setTimeout(cb, 500, value ?
-    getStates().filter(state => matchStateToTerm(state, value)) :
-    getStates()
+  return setTimeout(
+    cb,
+    500,
+    value
+      ? getStates().filter((state) => matchStateToTerm(state, value))
+      : getStates(),
   )
 }
 
-
 export function fakeCategorizedRequest(value, cb) {
-  setTimeout(cb, 500, value ?
-    getCategorizedStates().filter(state => matchStateToTermWithHeaders(state, value)) :
-    getCategorizedStates()
+  setTimeout(
+    cb,
+    500,
+    value
+      ? getCategorizedStates().filter((state) =>
+          matchStateToTermWithHeaders(state, value),
+        )
+      : getCategorizedStates(),
   )
 }
 
@@ -99,7 +106,7 @@ export function getStates() {
     { abbr: 'WA', name: 'Washington' },
     { abbr: 'WV', name: 'West Virginia' },
     { abbr: 'WI', name: 'Wisconsin' },
-    { abbr: 'WY', name: 'Wyoming' }
+    { abbr: 'WY', name: 'Wyoming' },
   ]
 }
 
@@ -157,7 +164,7 @@ export function getCategorizedStates() {
     { abbr: 'PA', name: 'Pennsylvania' },
     { abbr: 'RI', name: 'Rhode Island' },
     { abbr: 'VT', name: 'Vermont' },
-    { header:'Pacific' },
+    { header: 'Pacific' },
     { abbr: 'AK', name: 'Alaska' },
     { abbr: 'HI', name: 'Hawaii' },
   ]

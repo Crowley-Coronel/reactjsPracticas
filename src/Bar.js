@@ -19,9 +19,7 @@ const Bar = (props) => {
     <div>
       <Navbar color="light" light expand="md">
         <NavbarBrand>
-        <Link to ="/home">
-          React
-        </Link>
+          <Link to="/home">React</Link>
         </NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
