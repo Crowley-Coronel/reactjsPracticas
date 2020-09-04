@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Table, Button, Input } from 'reactstrap'
 import axios from 'axios'
 import PaginationComponent from "react-reactstrap-pagination";
-import Autocomplete from "../components/Autocomplete";
+//import Autocomplete from "../components/Autocomplete";
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 class Listado extends React.Component {
@@ -12,6 +12,7 @@ class Listado extends React.Component {
     console.log('entra en component did mount')
     axios.get('http://fakerestapi.azurewebsites.net/api/Books').then((resp) => {
       this.setState({ results: resp.data })
+      this.setState({ books: resp.data })
     })
   }
 
@@ -24,12 +25,17 @@ class Listado extends React.Component {
   }
 
   change(e){
-    let query = e.target.value;
-    let filtrados = this.state.results.filter(result =>  result.Title.toLowerCase() === query );
-    console.log("===============");
-    console.log("Query: " + query)
-    console.log("Filtrados: " + filtrados);
-    this.setState({ results :  filtrados});
+    let query = e.target.value.trim();
+    let _books = this.state.results;
+    let filtrados = _books.filter(result => { return result.Title.match(query) });
+
+    //let filtrados = _books.filter((result) => {
+      // if(result.Title.match(query)){
+        // return result;
+       //}
+     //});
+
+    this.setState({ books: filtrados })
 
   }
 
@@ -38,7 +44,7 @@ class Listado extends React.Component {
   render() {
     return (
       <div>
-       <Input type="search" name="search" id="search" placeholder="Introduce tu busqueda" onChange={this.change.bind(this)} style={{ 'width': '500px'}}/>
+       <Input type="search" name="search" id="search" placeholder="Introduce tu busqueda" onChange={this.change.bind(this)} style={{ 'width': '700px'}}/>
         {this.state.results.length > 0 ? (
           <div>
           <Table striped style={{ width: '700px', textAlign: 'center' }} bordered hover size="sm" responsive>
@@ -52,7 +58,7 @@ class Listado extends React.Component {
             </thead>
             <tbody>
 
-              {this.state.results.slice(this.state.activePage * 10, (this.state.activePage + 1) * 10).map((book, index) => (
+              {this.state.books.slice(this.state.activePage * 10, (this.state.activePage + 1) * 10).map((book, index) => (
                 <tr key={index}>
                   <th scope="row">{book.ID}</th>
                   <td>{book.Title}</td>
