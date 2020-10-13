@@ -37,6 +37,7 @@ class Listado extends React.Component {
     return (
       <div>
         <Buscador cambios={this.buscadorChange.bind(this)} />
+        {/* <Buscador cambios={ () => this.buscadorChange(this) } /> */}
         <Tabla books={this.state.books} busqueda={this.state.buscando} />
       </div>
     )

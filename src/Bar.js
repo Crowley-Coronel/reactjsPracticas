@@ -29,6 +29,11 @@ const Bar = (props) => {
                 Listado
               </Link>
             </NavItem>
+            <NavItem>
+              <Link to="/contador" className="link">
+                Contador
+              </Link>
+            </NavItem>
           </Nav>
           <NavbarText>Reactjs</NavbarText>
         </Collapse>
