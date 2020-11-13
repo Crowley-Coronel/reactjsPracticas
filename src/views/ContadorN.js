@@ -13,7 +13,7 @@ class ContadorN extends React.Component {
       render() {
         return (
             <div>
-          <p>You clicked { this.state.contador } times</p>
+          <p>Haz clickeado { this.state.contador } veces</p>
           <button onClick={() => this.aumentar() }>
             Click arrow function
           </button>
