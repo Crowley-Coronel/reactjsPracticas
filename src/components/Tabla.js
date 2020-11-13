@@ -36,7 +36,7 @@ class Tabla extends React.Component {
             size="sm"
             onClick={() => this.eliminar(book.ID)}
           >
-            x
+            eliminar
           </Button>
         </td>
       </tr>

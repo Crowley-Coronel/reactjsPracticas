@@ -24,7 +24,7 @@ const Form = (props) => {
         required
         style={{ width: '250px' }}
       />
-      <button type="submit">Add card</button>
+      <button type="submit">Agregar Card</button>
     </form>
   )
 }
