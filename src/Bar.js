@@ -26,12 +26,12 @@ const Bar = (props) => {
           <Nav className="mr-auto" navbar>
             <NavItem>
               <Link to="/listado" className="link">
-                [Listado]
+                Listado
               </Link>
             </NavItem>
             <NavItem>
               <Link to="/contador" className="link">
-                [Contador]
+                Contador
               </Link>
             </NavItem>
           </Nav>
