@@ -6,9 +6,9 @@ function Contador() {
 
   return (
     <div>
-      <p>You clicked {count} times</p>
+      <p>Has clickeado {count} veces</p>
       <button onClick={() => setCount(count + 1)}>
-        Click me
+        clickeame!
       </button>
     </div>
   );
